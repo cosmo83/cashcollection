@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="http://ncls4.runsimple.cloud/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='C09_900')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZC_RBLSITMFORKEYDTEDUEPERD_CDS" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="ZC_RBLSITMFORKEYDTEDUEPERDResult" sap:label="Receivables for Key Date" sap:semantics="aggregate" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false" sap:filterable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="TotaledProperties" Type="Edm.String" sap:aggregation-role="totaled-properties-list" sap:is-annotation="true" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="TransactionCurrency" Type="Edm.String" MaxLength="5" sap:aggregation-role="dimension" sap:creatable="false" sap:updatable="false" sap:label="Transaction Currency" sap:semantics="currency-code"/>
+                <Property Name="ReportingPeriodStartDate" Type="Edm.String" MaxLength="10" sap:aggregation-role="dimension" sap:creatable="false" sap:text="ReportingPeriodStartDate_T" sap:updatable="false" sap:label="Period Start Date" sap:semantics="yearmonthday"/>
+                <Property Name="ReportingPeriodStartDate_T" Type="Edm.String" MaxLength="10" sap:creatable="false" sap:filterable="false" sap:updatable="false" sap:label="Period Start Date (Description)"/>
+                <Property Name="AccountingClerk" Type="Edm.String" MaxLength="2" sap:aggregation-role="dimension" sap:creatable="false" sap:super-ordinate="CompanyCode" sap:updatable="false" sap:label="Accounting Clerk"/>
+                <Property Name="CompanyCode" Type="Edm.String" MaxLength="4" sap:aggregation-role="dimension" sap:creatable="false" sap:updatable="false" sap:label="Company Code"/>
+                <Property Name="SpecialGLCode" Type="Edm.String" MaxLength="1" sap:aggregation-role="dimension" sap:creatable="false" sap:text="SpecialGLCodeName" sap:updatable="false" sap:label="Special G/L"/>
+                <Property Name="SpecialGLCodeName" Type="Edm.String" MaxLength="1333" sap:creatable="false" sap:filterable="false" sap:updatable="false" sap:label="Special G/L (Description)"/>
+                <Property Name="BusinessArea" Type="Edm.String" MaxLength="4" sap:aggregation-role="dimension" sap:creatable="false" sap:updatable="false" sap:label="Business Area"/>
+                <Property Name="GLAccount" Type="Edm.String" MaxLength="15" sap:aggregation-role="dimension" sap:creatable="false" sap:text="GLAccountLongName" sap:updatable="false" sap:label="G/L Account"/>
+                <Property Name="GLAccountLongName" Type="Edm.String" MaxLength="1333" sap:creatable="false" sap:filterable="false" sap:updatable="false" sap:label="G/L Account (Description)"/>
+                <Property Name="Segment" Type="Edm.String" MaxLength="10" sap:aggregation-role="dimension" sap:creatable="false" sap:updatable="false" sap:label="Segment"/>
+                <Property Name="Customer" Type="Edm.String" MaxLength="10" sap:aggregation-role="dimension" sap:creatable="false" sap:text="CustomerName" sap:updatable="false" sap:label="Customer"/>
+                <Property Name="CustomerName" Type="Edm.String" MaxLength="1333" sap:creatable="false" sap:filterable="false" sap:updatable="false" sap:label="Customer (Description)"/>
+                <Property Name="ReportingPeriod" Type="Edm.String" MaxLength="3" sap:aggregation-role="dimension" sap:creatable="false" sap:updatable="false" sap:label="Period"/>
+                <Property Name="DisplayCurrency" Type="Edm.String" MaxLength="5" sap:aggregation-role="dimension" sap:creatable="false" sap:updatable="false" sap:label="Display Currency" sap:semantics="currency-code"/>
+                <Property Name="ReconciliationAccount" Type="Edm.String" MaxLength="15" sap:aggregation-role="dimension" sap:creatable="false" sap:text="ReconciliationAccountLongName" sap:updatable="false" sap:label="Recon. Account"/>
+                <Property Name="ReconciliationAccountLongName" Type="Edm.String" MaxLength="1333" sap:creatable="false" sap:filterable="false" sap:updatable="false" sap:label="Recon. Account (Description)"/>
+                <Property Name="ReportingPeriodEndDate" Type="Edm.String" MaxLength="10" sap:aggregation-role="dimension" sap:creatable="false" sap:text="ReportingPeriodEndDate_T" sap:updatable="false" sap:label="Period End Date" sap:semantics="yearmonthday"/>
+                <Property Name="ReportingPeriodEndDate_T" Type="Edm.String" MaxLength="10" sap:creatable="false" sap:filterable="false" sap:updatable="false" sap:label="Period End Date (Description)"/>
+                <Property Name="ReportingYear" Type="Edm.String" MaxLength="4" sap:aggregation-role="dimension" sap:creatable="false" sap:updatable="false" sap:label="Year"/>
+                <Property Name="CustomerCountry" Type="Edm.String" MaxLength="3" sap:aggregation-role="dimension" sap:creatable="false" sap:updatable="false" sap:label="Customer Country"/>
+                <Property Name="NetDueIntvl1AmtInDspCrcy" Type="Edm.Decimal" Precision="42" Scale="2" sap:aggregation-role="measure" sap:creatable="false" sap:filterable="false" sap:text="NetDueIntvl1AmtInDspCrcy_F" sap:unit="DisplayCurrency" sap:updatable="false" sap:label="Due in Previous Periods"/>
+                <Property Name="NetDueIntvl1AmtInDspCrcy_F" Type="Edm.String" MaxLength="60" sap:creatable="false" sap:filterable="false" sap:updatable="false" sap:label="Due in Previous Periods (Formatted)"/>
+                <Property Name="NetDueIntvl2AmtInDspCrcy" Type="Edm.Decimal" Precision="42" Scale="2" sap:aggregation-role="measure" sap:creatable="false" sap:filterable="false" sap:text="NetDueIntvl2AmtInDspCrcy_F" sap:unit="DisplayCurrency" sap:updatable="false" sap:label="Due in Selected Period"/>
+                <Property Name="NetDueIntvl2AmtInDspCrcy_F" Type="Edm.String" MaxLength="60" sap:creatable="false" sap:filterable="false" sap:updatable="false" sap:label="Due in Selected Period (Formatted)"/>
+                <Property Name="NetDueIntvl3AmtInDspCrcy" Type="Edm.Decimal" Precision="42" Scale="2" sap:aggregation-role="measure" sap:creatable="false" sap:filterable="false" sap:text="NetDueIntvl3AmtInDspCrcy_F" sap:unit="DisplayCurrency" sap:updatable="false" sap:label="New Invoices Due"/>
+                <Property Name="NetDueIntvl3AmtInDspCrcy_F" Type="Edm.String" MaxLength="60" sap:creatable="false" sap:filterable="false" sap:updatable="false" sap:label="New Invoices Due (Formatted)"/>
+                <Property Name="TotalAmountInDisplayCrcy" Type="Edm.Decimal" Precision="42" Scale="2" sap:aggregation-role="measure" sap:creatable="false" sap:filterable="false" sap:text="TotalAmountInDisplayCrcy_F" sap:unit="TotalAmountInDisplayCrcy_E" sap:updatable="false" sap:label="Total Target"/>
+                <Property Name="TotalAmountInDisplayCrcy_F" Type="Edm.String" MaxLength="60" sap:creatable="false" sap:filterable="false" sap:updatable="false" sap:label="Total Target (Formatted)"/>
+                <Property Name="TotalAmountInDisplayCrcy_E" Type="Edm.String" MaxLength="5" sap:creatable="false" sap:filterable="false" sap:updatable="false" sap:label="Total Target (Currency)" sap:semantics="currency-code"/>
+                <Property Name="PartialPaymentAmtInDspCrcy" Type="Edm.Decimal" Precision="42" Scale="16" sap:aggregation-role="measure" sap:creatable="false" sap:filterable="false" sap:text="PartialPaymentAmtInDspCrcy_F" sap:unit="DisplayCurrency" sap:updatable="false" sap:label="Collected"/>
+                <Property Name="PartialPaymentAmtInDspCrcy_F" Type="Edm.String" MaxLength="60" sap:creatable="false" sap:filterable="false" sap:updatable="false" sap:label="Collected (Formatted)"/>
+                <Property Name="BalanceRatioInPercent" Type="Edm.Decimal" Precision="42" Scale="4" sap:aggregation-role="measure" sap:creatable="false" sap:filterable="false" sap:text="BalanceRatioInPercent_F" sap:unit="BalanceRatioInPercent_E" sap:updatable="false" sap:label="% Collected"/>
+                <Property Name="BalanceRatioInPercent_F" Type="Edm.String" MaxLength="60" sap:creatable="false" sap:filterable="false" sap:updatable="false" sap:label="% Collected (Formatted)"/>
+                <Property Name="BalanceRatioInPercent_E" Type="Edm.String" MaxLength="11" sap:creatable="false" sap:filterable="false" sap:updatable="false" sap:label="% Collected (Unit)"/>
+                <Property Name="NotOvrdAmountInDspCrcy" Type="Edm.Decimal" Precision="42" Scale="4" sap:aggregation-role="measure" sap:creatable="false" sap:filterable="false" sap:text="NotOvrdAmountInDspCrcy_F" sap:unit="NotOvrdAmountInDspCrcy_E" sap:updatable="false" sap:label="Outstanding Due"/>
+                <Property Name="NotOvrdAmountInDspCrcy_F" Type="Edm.String" MaxLength="60" sap:creatable="false" sap:filterable="false" sap:updatable="false" sap:label="Outstanding Due (Formatted)"/>
+                <Property Name="NotOvrdAmountInDspCrcy_E" Type="Edm.String" MaxLength="5" sap:creatable="false" sap:filterable="false" sap:updatable="false" sap:label="Outstanding Due (Currency)" sap:semantics="currency-code"/>
+                <NavigationProperty Name="Parameters" Relationship="ZC_RBLSITMFORKEYDTEDUEPERD_CDS.ZCRBLSKDATDUEParametersToResult" FromRole="ToRole_ZCRBLSKDATDUEParametersToResult" ToRole="FromRole_ZCRBLSKDATDUEParametersToResult"/>
+            </EntityType>
+            <EntityType Name="ZC_RBLSITMFORKEYDTEDUEPERDParameters" sap:semantics="parameters" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="P_KeyDate"/>
+                    <PropertyRef Name="P_PeriodType"/>
+                    <PropertyRef Name="P_DisplayCurrency"/>
+                    <PropertyRef Name="P_ExchangeRateType"/>
+                </Key>
+                <Property Name="P_KeyDate" Type="Edm.DateTime" Nullable="false" DefaultValue="2017-01-31T00:00:00" Precision="0" sap:display-format="Date" sap:parameter="mandatory" sap:text="P_KeyDateText" sap:label="As of Date" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="P_KeyDateText" Type="Edm.String" MaxLength="60" sap:label="As of Date" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="P_PeriodType" Type="Edm.String" Nullable="false" DefaultValue="F" MaxLength="1" sap:parameter="mandatory" sap:text="P_PeriodTypeText" sap:label="Period Type" sap:sortable="false"/>
+                <Property Name="P_PeriodTypeText" Type="Edm.String" MaxLength="60" sap:label="Period Type" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="P_DisplayCurrency" Type="Edm.String" Nullable="false" DefaultValue="USD" MaxLength="5" sap:parameter="mandatory" sap:text="P_DisplayCurrencyText" sap:label="Display Currency" sap:sortable="false"/>
+                <Property Name="P_DisplayCurrencyText" Type="Edm.String" MaxLength="60" sap:label="Display Currency" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="P_ExchangeRateType" Type="Edm.String" Nullable="false" DefaultValue="M" MaxLength="60" sap:parameter="mandatory" sap:text="P_ExchangeRateTypeText" sap:label="Exchange rate type" sap:sortable="false"/>
+                <Property Name="P_ExchangeRateTypeText" Type="Edm.String" MaxLength="60" sap:label="Exchange rate type" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="P_PeriodTypeDetails" Relationship="ZC_RBLSITMFORKEYDTEDUEPERD_CDS.P_PeriodTypeToListOfValues" FromRole="ToRole_P_PeriodTypeToListOfValues" ToRole="FromRole_P_PeriodTypeToListOfValues"/>
+                <NavigationProperty Name="P_DisplayCurrencyDetails" Relationship="ZC_RBLSITMFORKEYDTEDUEPERD_CDS.P_DisplayCurrencyToListOfValues" FromRole="ToRole_P_DisplayCurrencyToListOfValues" ToRole="FromRole_P_DisplayCurrencyToListOfValues"/>
+                <NavigationProperty Name="P_ExchangeRateTypeDetails" Relationship="ZC_RBLSITMFORKEYDTEDUEPERD_CDS.P_ExchangeRateTypeToListOfValues" FromRole="ToRole_P_ExchangeRateTypeToListOfValues" ToRole="FromRole_P_ExchangeRateTypeToListOfValues"/>
+                <NavigationProperty Name="Results" Relationship="ZC_RBLSITMFORKEYDTEDUEPERD_CDS.ZCRBLSKDATDUEParametersToResult" FromRole="FromRole_ZCRBLSKDATDUEParametersToResult" ToRole="ToRole_ZCRBLSKDATDUEParametersToResult"/>
+            </EntityType>
+            <EntityType Name="P_PeriodType" sap:label="Period Type" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="P_PeriodType_ID"/>
+                </Key>
+                <Property Name="P_PeriodType_ID" Type="Edm.String" Nullable="false" MaxLength="1" sap:sortable="false" sap:text="P_PeriodType_TEXT" sap:label="Period Type" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="P_PeriodType_TEXT" Type="Edm.String" sap:sortable="false" sap:label="Period Type (Description)" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="P_DisplayCurrency" sap:label="Display Currency" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="P_DisplayCurrency_ID"/>
+                </Key>
+                <Property Name="P_DisplayCurrency_ID" Type="Edm.String" Nullable="false" MaxLength="5" sap:sortable="false" sap:text="P_DisplayCurrency_TEXT" sap:label="Display Currency" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="P_DisplayCurrency_TEXT" Type="Edm.String" sap:sortable="false" sap:label="Display Currency (Description)" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="P_ExchangeRateType" sap:label="Exchange rate type" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="P_ExchangeRateType_ID"/>
+                </Key>
+                <Property Name="P_ExchangeRateType_ID" Type="Edm.String" Nullable="false" MaxLength="60" sap:sortable="false" sap:text="P_ExchangeRateType_TEXT" sap:label="Exchange rate type" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="P_ExchangeRateType_TEXT" Type="Edm.String" sap:sortable="false" sap:label="Exchange rate type (Description)" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="ODataQueryAdditionalMetadata" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ODataQueryMetadata"/>
+                </Key>
+                <Property Name="ODataQueryMetadata" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ODataQueryMetadataValue_Current" Type="Edm.String" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ODataQueryMetadataValueAtDefine" Type="Edm.String" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <Association Name="P_DisplayCurrencyToListOfValues" sap:content-version="1">
+                <End Type="ZC_RBLSITMFORKEYDTEDUEPERD_CDS.P_DisplayCurrency" Multiplicity="1" Role="FromRole_P_DisplayCurrencyToListOfValues"/>
+                <End Type="ZC_RBLSITMFORKEYDTEDUEPERD_CDS.ZC_RBLSITMFORKEYDTEDUEPERDParameters" Multiplicity="*" Role="ToRole_P_DisplayCurrencyToListOfValues"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_P_DisplayCurrencyToListOfValues">
+                        <PropertyRef Name="P_DisplayCurrency_ID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_P_DisplayCurrencyToListOfValues">
+                        <PropertyRef Name="P_DisplayCurrency"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="P_ExchangeRateTypeToListOfValues" sap:content-version="1">
+                <End Type="ZC_RBLSITMFORKEYDTEDUEPERD_CDS.P_ExchangeRateType" Multiplicity="1" Role="FromRole_P_ExchangeRateTypeToListOfValues"/>
+                <End Type="ZC_RBLSITMFORKEYDTEDUEPERD_CDS.ZC_RBLSITMFORKEYDTEDUEPERDParameters" Multiplicity="*" Role="ToRole_P_ExchangeRateTypeToListOfValues"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_P_ExchangeRateTypeToListOfValues">
+                        <PropertyRef Name="P_ExchangeRateType_ID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_P_ExchangeRateTypeToListOfValues">
+                        <PropertyRef Name="P_ExchangeRateType"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="P_PeriodTypeToListOfValues" sap:content-version="1">
+                <End Type="ZC_RBLSITMFORKEYDTEDUEPERD_CDS.P_PeriodType" Multiplicity="1" Role="FromRole_P_PeriodTypeToListOfValues"/>
+                <End Type="ZC_RBLSITMFORKEYDTEDUEPERD_CDS.ZC_RBLSITMFORKEYDTEDUEPERDParameters" Multiplicity="*" Role="ToRole_P_PeriodTypeToListOfValues"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_P_PeriodTypeToListOfValues">
+                        <PropertyRef Name="P_PeriodType_ID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_P_PeriodTypeToListOfValues">
+                        <PropertyRef Name="P_PeriodType"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="ZCRBLSKDATDUEParametersToResult" sap:content-version="1">
+                <End Type="ZC_RBLSITMFORKEYDTEDUEPERD_CDS.ZC_RBLSITMFORKEYDTEDUEPERDParameters" Multiplicity="1" Role="FromRole_ZCRBLSKDATDUEParametersToResult"/>
+                <End Type="ZC_RBLSITMFORKEYDTEDUEPERD_CDS.ZC_RBLSITMFORKEYDTEDUEPERDResult" Multiplicity="*" Role="ToRole_ZCRBLSKDATDUEParametersToResult"/>
+            </Association>
+            <EntityContainer Name="ZC_RBLSITMFORKEYDTEDUEPERD_CDS_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="P_DisplayCurrency" EntityType="ZC_RBLSITMFORKEYDTEDUEPERD_CDS.P_DisplayCurrency" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="P_ExchangeRateType" EntityType="ZC_RBLSITMFORKEYDTEDUEPERD_CDS.P_ExchangeRateType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="AdditionalMetadata" EntityType="ZC_RBLSITMFORKEYDTEDUEPERD_CDS.ODataQueryAdditionalMetadata" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="ZC_RBLSITMFORKEYDTEDUEPERDResults" EntityType="ZC_RBLSITMFORKEYDTEDUEPERD_CDS.ZC_RBLSITMFORKEYDTEDUEPERDResult" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="ZC_RBLSITMFORKEYDTEDUEPERD" EntityType="ZC_RBLSITMFORKEYDTEDUEPERD_CDS.ZC_RBLSITMFORKEYDTEDUEPERDParameters" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="P_PeriodType" EntityType="ZC_RBLSITMFORKEYDTEDUEPERD_CDS.P_PeriodType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <AssociationSet Name="P_PeriodTypeToListOfValues_AssocSet" Association="ZC_RBLSITMFORKEYDTEDUEPERD_CDS.P_PeriodTypeToListOfValues" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="P_PeriodType" Role="FromRole_P_PeriodTypeToListOfValues"/>
+                    <End EntitySet="ZC_RBLSITMFORKEYDTEDUEPERD" Role="ToRole_P_PeriodTypeToListOfValues"/>
+                </AssociationSet>
+                <AssociationSet Name="P_ExchangeRateTypeToListOfValues_AssocSe" Association="ZC_RBLSITMFORKEYDTEDUEPERD_CDS.P_ExchangeRateTypeToListOfValues" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="P_ExchangeRateType" Role="FromRole_P_ExchangeRateTypeToListOfValues"/>
+                    <End EntitySet="ZC_RBLSITMFORKEYDTEDUEPERD" Role="ToRole_P_ExchangeRateTypeToListOfValues"/>
+                </AssociationSet>
+                <AssociationSet Name="P_DisplayCurrencyToListOfValues_AssocSet" Association="ZC_RBLSITMFORKEYDTEDUEPERD_CDS.P_DisplayCurrencyToListOfValues" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="P_DisplayCurrency" Role="FromRole_P_DisplayCurrencyToListOfValues"/>
+                    <End EntitySet="ZC_RBLSITMFORKEYDTEDUEPERD" Role="ToRole_P_DisplayCurrencyToListOfValues"/>
+                </AssociationSet>
+                <AssociationSet Name="ZCRBLSKDATDUEParametersToResult_AssocSet" Association="ZC_RBLSITMFORKEYDTEDUEPERD_CDS.ZCRBLSKDATDUEParametersToResult" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ZC_RBLSITMFORKEYDTEDUEPERD" Role="FromRole_ZCRBLSKDATDUEParametersToResult"/>
+                    <End EntitySet="ZC_RBLSITMFORKEYDTEDUEPERDResults" Role="ToRole_ZCRBLSKDATDUEParametersToResult"/>
+                </AssociationSet>
+            </EntityContainer>
+            <Annotations Target="ZC_RBLSITMFORKEYDTEDUEPERD_CDS.ZC_RBLSITMFORKEYDTEDUEPERDParameters/P_PeriodType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Period Type"/>
+                        <PropertyValue Property="CollectionPath" String="P_PeriodType"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="P_PeriodType"/>
+                                    <PropertyValue Property="ValueListProperty" String="P_PeriodType_ID"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="P_PeriodType_TEXT"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZC_RBLSITMFORKEYDTEDUEPERD_CDS.ZC_RBLSITMFORKEYDTEDUEPERDParameters/P_DisplayCurrency" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Display Currency"/>
+                        <PropertyValue Property="CollectionPath" String="P_DisplayCurrency"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="P_DisplayCurrency"/>
+                                    <PropertyValue Property="ValueListProperty" String="P_DisplayCurrency_ID"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="P_DisplayCurrency_TEXT"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZC_RBLSITMFORKEYDTEDUEPERD_CDS.ZC_RBLSITMFORKEYDTEDUEPERDParameters/P_ExchangeRateType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Exchange rate type"/>
+                        <PropertyValue Property="CollectionPath" String="P_ExchangeRateType"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="P_ExchangeRateType"/>
+                                    <PropertyValue Property="ValueListProperty" String="P_ExchangeRateType_ID"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="P_ExchangeRateType_TEXT"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <atom:link rel="self" href="http://ncls4.runsimple.cloud/sap/opu/odata/sap/ZC_RBLSITMFORKEYDTEDUEPERD_CDS/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="http://ncls4.runsimple.cloud/sap/opu/odata/sap/ZC_RBLSITMFORKEYDTEDUEPERD_CDS/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
